@@ -16,29 +16,29 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Navigate to="home" />} />
+        <Route index element={<Navigate to="/home" />} />
         <Route
-          path="login"
+          path="/login"
           element={
-            <RestrictedRoute redirectTo="home" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
           }
         />
         <Route
-          path="registration"
+          path="/registration"
           element={
             <RestrictedRoute
-              redirectTo="home"
+              redirectTo="/home"
               component={<RegistrationPage />}
             />
           }
         />
         <Route
-          path="home"
+          path="/home"
           element={
-            <ProtectedRoute redirectTo="login" component={<DashboardPage />} />
+            <ProtectedRoute redirectTo="/login" component={<DashboardPage />} />
           }
         />
-        <Route path="*" element={<Navigate to="home" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Route>
     </Routes>
   );
