@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="amichalmurawski.github.io/walletapp">
+        <BrowserRouter basename="/walletapp">
           <App />
         </BrowserRouter>
       </PersistGate>
