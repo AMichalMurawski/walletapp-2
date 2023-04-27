@@ -1,12 +1,12 @@
-import { useAuth } from "./hooks/useAuth";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { RestrictedRoute, ProtectedRoute } from "./routes";
-import { lazy } from "react";
-import { SharedLayout } from "./components/SharedLayout";
+import { useAuth } from './hooks/useAuth';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { RestrictedRoute, ProtectedRoute } from './routes';
+import { lazy } from 'react';
+import { SharedLayout } from './components/SharedLayout';
 
-const LoginPage = lazy(() => import("./pages/LoginPage"));
-const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
-const DashboardPage = lazy(() => import("./pages/DashboardPage"));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 
 export const App = () => {
   const { isRefreshing } = useAuth();
@@ -15,31 +15,32 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/walletapp" element={<SharedLayout />}>
+        <Route index element={<Navigate to="home" />} />
         <Route
-          path="/login"
+          path="login"
           element={
-            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="home" component={<LoginPage />} />
           }
         />
         <Route
-          path="/registration"
+          path="registration"
           element={
             <RestrictedRoute
-              redirectTo="/home"
+              redirectTo="home"
               component={<RegistrationPage />}
             />
           }
         />
         <Route
-          path="/home"
+          path="home"
           element={
-            <ProtectedRoute redirectTo="/login" component={<DashboardPage />} />
+            <ProtectedRoute redirectTo="login" component={<DashboardPage />} />
           }
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="home" />} />
       </Route>
+      <Route path="*" element={<Navigate to="/walletapp" />} />
     </Routes>
   );
 };
