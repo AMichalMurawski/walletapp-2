@@ -15,7 +15,7 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/walletapp" element={<SharedLayout />}>
+      <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="home" />} />
         <Route
           path="login"
@@ -40,7 +40,6 @@ export const App = () => {
         />
         <Route path="*" element={<Navigate to="home" />} />
       </Route>
-      <Route path="*" element={<Navigate to="/walletapp" />} />
     </Routes>
   );
 };
