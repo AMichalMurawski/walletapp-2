@@ -4,7 +4,7 @@ import { RestrictedRoute, ProtectedRoute } from './routes';
 import { lazy } from 'react';
 import { SharedLayout } from './components/SharedLayout';
 
-const LoginPage = lazy(() => import('./pages/LoginPage'));
+const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 
