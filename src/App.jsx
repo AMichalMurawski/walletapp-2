@@ -5,7 +5,7 @@ import { lazy } from 'react';
 import { SharedLayout } from './components/SharedLayout';
 
 const LoginPage = lazy(() => import('./pages/LoginPage'));
-const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 
 export const App = () => {
