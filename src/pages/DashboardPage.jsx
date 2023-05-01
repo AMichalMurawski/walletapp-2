@@ -7,6 +7,7 @@ const DashboardPage = () => {
         <title>walletapp</title>
       </Helmet>
       <p>Dashboard Page</p>
+     
     </>
   );
 };
