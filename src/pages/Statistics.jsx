@@ -4,6 +4,7 @@ import Table from "./Table";
 
 const Statistics = () => {
 
+  
     const [currency, setCurrency] = useState()
     const getHeadings = () => {
             return Object.keys(currency[0]);
