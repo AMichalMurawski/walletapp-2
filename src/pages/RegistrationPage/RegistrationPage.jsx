@@ -1,17 +1,25 @@
 import { Helmet } from 'react-helmet';
 import Media from 'react-media';
+import RegisterForm from '../../components/RegisterForm/RegisterForm'
 import s from './RegistrationPage.module.scss';
 import register_tab from '../../images/imgLogin/Register@1x_tab.png';
 import register_tab_2x from '../../images/imgLogin/Register@2x_tab.png';
 import register_desk from '../../images/imgLogin/Register@1x_desk.png';
 import register_desk_2x from '../../images/imgLogin/Register@2x_desk.png';
+import SuccessRegistrationModal from '../../components/Modal/SuccessRegistractionModal/SuccessRagistractionModal';
+import { useSelector } from 'react-redux';
+import { modalSelectors } from '../../redux/modal/modalSelector';
 
 const RegistrationPage = () => {
+  const showModalSuccessRegistration = useSelector(
+    modalSelectors.showModalSuccessRegistration
+  );
   return (
     <>
-      <Helmet>
+      <Helmet>registration</Helmet>
         <div className={s.back}>
           <div className={s.container}>
+          {showModalSuccessRegistration && <SuccessRegistrationModal />}
             <div className={s.registerContainer}>
               <Media
                 queries={{
@@ -46,10 +54,13 @@ const RegistrationPage = () => {
                   </>
                 )}
               </Media>
+              <div className={s.form}>
+            <RegisterForm />
+          </div>
             </div>
           </div>
         </div>
-      </Helmet>
+
     </>
   );
 };
