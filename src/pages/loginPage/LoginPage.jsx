@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+//import {LoginForm} from '../../components/LoginForm';
 import s from './LoginPage.module.scss';
 import login_tab from '../../images/imgLogin/Login@1x_tab.png';
 import login_tab_2x from '../../images/imgLogin/Login@2x_tab.png';
@@ -8,7 +9,8 @@ import Media from 'react-media';
 
 const LoginPage = () => {
   return (
-    <Helmet>
+    <>
+    <Helmet>login</Helmet>
       <div className={s.back}>
         <div className={s.container}>
           <div className={s.loginContainer}>
@@ -48,10 +50,11 @@ const LoginPage = () => {
               )}
             </Media>
             <div className={s.form}></div>
+       
           </div>
         </div>
       </div>
-    </Helmet>
+      </>
   );
 };
 
