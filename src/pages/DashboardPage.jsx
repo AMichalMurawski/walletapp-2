@@ -3,7 +3,7 @@ import { useState } from "react";
 import Chart from "../components/Chart/Chart";
 import ChooseMonth from "../components/ChooseMonth/ChooseMonth";
 import ChooseYear from "../components/ChooseYear/ChooseYear";
-
+import Home from './home/Home'
 const DashboardPage = () => {
 
   const [selected, setSelected] = useState("Choose month");
@@ -14,9 +14,10 @@ const DashboardPage = () => {
       <Helmet>
         <title>walletapp</title>
       </Helmet>
-      <Chart />
+      <Home/>
+      {/* <Chart />
       <ChooseMonth  selected={selected} setSelected={setSelected}/>
-      <ChooseYear  selected={selectedYear} setSelected={setSelectedYear}/>
+      <ChooseYear  selected={selectedYear} setSelected={setSelectedYear}/> */}
     </>
   );
 };

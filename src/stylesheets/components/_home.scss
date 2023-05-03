@@ -1,10 +1,77 @@
+@import '../../stylesheets/utils/mixins';
 
+.primary{
+    @include mq(desk){
+    display: grid;
+    grid-template-columns: auto auto;}
+    @include mq(tab){
+        display:flex;
+        flex-direction: column;
 
-.statisticsTable thead{
+    }
+    @include mq(desk){
+        display:flex;
+        flex-direction: row;
 
-    font-size: 18px;
-    font-weight: 700;
+    }
 }
+
+.secondary{
+    @include mq(tab){
+        display:grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+.statsMain {
+display:flex;
+justify-content: center;
+margin:46px 46px;
+}
+
+.statsMain table {
+    border-collapse: collapse;
+    width: 715px;
+    text-align: center;
+    border-spacing:20px;
+
+}
+.statsMain thead {
+height: 58px;
+font-family: Circe;
+font-size: 18px;
+font-weight: 700;
+background-color: white;
+border-collapse: collapse;    
+
+}
+td:first-child,
+th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+
+
+.statsMain th {
+ padding:20px;
+ border-collapse:collapse;
+    }
+
+    .statsMain tbody {
+       
+        font-family: Circe;
+        font-size: 16px;
+        font-weight: 400;
+        }
+    .statsMain tbody tr {
+            height: 58px;
+            border-top: 1px #DCDCDF solid;
+               
+            }
 
 .wallet {
     font-family: 'poppins';
@@ -23,6 +90,7 @@ background-color:var(--btn-green-color);
 color: var(--text-alernative);
 margin:50px;
 font-size: 20px;
+cursor: pointer;
 }
 
 .statsButtonContainer{
@@ -34,8 +102,19 @@ font-size: 20px;
     width: 40px;
     height: 40px;
     margin:0px 20px;
+    border: white;
     }
     
+.button{
+    cursor: pointer;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+    border:none;
+    
+}
+
     .exit svg{
         width: 18px;
         height: 18px;
@@ -64,7 +143,7 @@ font-size: 20px;
     }
     
     .dot{
-     border: 1px solid var(--text-primary);
+     border: 1px solid #BDBDBD;
      height: 30px; 
      margin:12px
     }
@@ -134,8 +213,8 @@ font-size: 20px;
         justify-content: space-between;
     }
     
-    .table{
-        width: 366px;
+    .tableCurrency{
+        width: 386px;
         height: 182px;
         border: 1px solid --text-primary;
         border-radius:30px;
@@ -145,7 +224,9 @@ font-size: 20px;
         background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.2) -8.67%, rgba(255, 255, 255, 0) 116.22%) ;
         
     }
-    
+ 
+
+
     .mainTable{
         display:flex;
         align-items: center;
@@ -172,4 +253,16 @@ font-size: 20px;
     
     .tableAdjust{
         padding-bottom: 40px;
+    }
+
+    .containerHeader{
+        display:flex;
+        justify-content: space-between;
+        height: 80px;
+        background-color: white;
+    }
+
+    .pageHomeContainer{
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(25px);
     }
