@@ -29,8 +29,9 @@
 
 .logoIcon {
   @include mq(tab) {
-    width: 50px;
-    height: 30px;
+    width: 181px;
+    height: 40px;
+    margin-left: 50px;
   }
 }
 
@@ -68,11 +69,9 @@
   color: #e0e0e0;
   fill: #e0e0e0;
 
+
 }
-svg{
-  width: 38px;
-  height: 30px;
-}
+
 
 .errorInputIcon {
   position: absolute;
@@ -179,33 +178,10 @@ svg{
   }
 }
 
-.googleBtn {
-  @extend %btnTransperentBlue;
-  height: 50px;
-  border-radius: 20px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  padding-left: 13px;
-  padding-right: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 18px;
 
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  justify-content: center;
 
-  @include mq(tab) {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
-.googleIcon {
-  align-self: center;
-}
+
 
 .icon {
   width: 25px;
