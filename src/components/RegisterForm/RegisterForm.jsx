@@ -2,18 +2,15 @@ import React, { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './RegisterForm.module.scss';
-
-import IconSvg from "../../pages/IconSvg";
-
+import IconSvg from '../../pages/IconSvg';
+import sprite from '../../images/vectors/icons.svg';
+import classNames from 'classnames';
 import PasswordStrength from './PasswordStrength';
 import { Link } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-import authThunk from '../../redux/auth/authThunk';
-
+import { register } from '../../redux/auth/authThunk';
 import { toggleShowModalSuccessRegistration } from '../../redux/modal/modalSlice';
 import { BiHide, BiShow } from 'react-icons/bi';
-
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 //import { Loader } from 'components';
 
@@ -33,11 +30,11 @@ const RegisterForm = () => {
       password,
       firstName,
     };
-    // dispatch(authThunk.register(user)).then(response => {
-    //   if (response.payload.status === 'success') {
-    //     dispatch(toggleShowModalSuccessRegistration(true));
-    //   }
-    // });
+    dispatch(register(user)).then(response => {
+      if (response.payload.status === 'success') {
+        dispatch(toggleShowModalSuccessRegistration(true));
+      }
+    });
   };
 
   const [type, setType] = useState('password');
@@ -61,8 +58,10 @@ const RegisterForm = () => {
       .max(63)
       .required('Required field'),
     password: Yup.string()
-      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/,
-       'Requires at least 1 uppercase and 1 lowercase letter, 1 number, 1 special character.')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/,
+        'Requires at least 1 uppercase and 1 lowercase letter, 1 number, 1 special character.'
+      )
       .min(6, 'Minimum 6 characters required')
       .max(12, 'Maximum 12 characters')
       .required('Required field'),
@@ -81,8 +80,10 @@ const RegisterForm = () => {
 
   return (
     <div className={s.formContainer}>
-      <div className={s.logo} >
-        <IconSvg width="120" height="30" className={s.logoIcon} icon="logo"/>
+      <div className={s.logo}>
+        <svg width="120" height="30" className={s.logoIcon}>
+          <use href={`${sprite}#icon-logo2`}></use>
+        </svg>
       </div>
       <Formik
         initialValues={initialValues}
@@ -96,19 +97,28 @@ const RegisterForm = () => {
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                //  className={classNames(s.input {
-                //   [s.errorInput]: errors.email && touched.email,
-                //    [s.validInput]: !errors.email && touched.email,
-                //  })}
+                className={classNames(s.input, {
+                  [s.errorInput]: errors.email && touched.email,
+                  [s.validInput]: !errors.email && touched.email,
+                })}
                 value={values.email}
                 onChange={handleChange}
               />
-               <IconSvg icon="email" className={s.inputIcon} />
+              <svg width="24" height="24" className={s.inputIcon}>
+                <use href={`${sprite}#icon-email`}></use>
+              </svg>
+
               {!errors.email && touched.email && (
-                <IconSvg icon="email" className={s.validInputIcon} />
+               
+               <svg width="24" height="24" className={s.validInputIcon}>
+               <use href={`${sprite}#icon-email`}></use>
+             </svg>
               )}
               {errors.email && touched.email && (
-                <IconSvg icon="email" className={s.errorInputIcon} />
+                <svg width="24" height="24" className={s.errorInputIcon}>
+                <use href={`${sprite}#icon-email`}></use>
+              </svg>
+              
               )}
               {errors.email && touched.email && (
                 <div className={s.errorField}>{errors.email}</div>
@@ -120,15 +130,15 @@ const RegisterForm = () => {
                 name="password"
                 placeholder="Password"
                 autoComplete="true"
-                // className={classNames(s.input, {
-                //   [s.errorInput]: errors.password && touched.password,
-                //   [s.validInput]: !errors.password && touched.password,
-                // })}
+                className={classNames(s.input, {
+                  [s.errorInput]: errors.password && touched.password,
+                  [s.validInput]: !errors.password && touched.password,
+                })}
                 value={values.password}
                 onChange={handleChange}
               />
               <div className={s.inputIcon}>
-              <IconSvg icon="password"  />
+                <IconSvg icon="password" />
               </div>
               {!errors.password && touched.password && (
                 <IconSvg icon="password" className={s.validInputIcon} />
@@ -201,24 +211,27 @@ const RegisterForm = () => {
                 value={values.firstName}
                 onChange={handleChange}
               />
-              <IconSvg icon="firstname"  className={s.inputIcon} />
+              <IconSvg icon="firstname" className={s.inputIcon} />
               {!errors.firstName && touched.firstName && (
-                <IconSvg icon="firstname"  className={s.validInputIcon} />
+                <IconSvg icon="firstname" className={s.validInputIcon} />
               )}
               {errors.firstName && touched.firstName && (
-                <IconSvg icon="firstname"  className={s.errorInputIcon} />
+                <IconSvg icon="firstname" className={s.errorInputIcon} />
               )}
               {errors.firstName && touched.firstName && (
                 <div className={s.errorField}>{errors.firstName}</div>
               )}
             </label>
-            {loading === false ? <button type="submit" className={s.registerBtn}>
-              register
-            </button> : <button className={s.registerBtnLoading} disabled></button>}
+            {loading === false ? (
+              <button type="submit" className={s.registerBtn}>
+                register
+              </button>
+            ) : (
+              <button className={s.registerBtnLoading} disabled></button>
+            )}
             <Link to="/login" className={s.loginBtn}>
               log in
             </Link>
-           
           </Form>
         )}
       </Formik>
