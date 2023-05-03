@@ -1,0 +1,153 @@
+import { Field, Form, Formik } from 'formik';
+import classNames from 'classnames';
+import s from '../LoginForm/LoginForm.module.scss';
+import * as Yup from 'yup';
+import IconSvg from '../../pages/IconSvg';
+import sprite from '../../images/vectors/icons.svg';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import {logIn} from '../../redux/auth/authThunk';
+import { BiHide, BiShow } from 'react-icons/bi';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+//import { Loader } from 'components';
+
+export const LoginForm = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+  };
+
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const loading = useSelector(selectIsLoggedIn);
+
+  const onSubmit = e => {
+    e.preventDefault();
+    dispatch(logIn({ email, password }));
+  };
+
+  const [type, setType] = useState('password');
+
+  const showPassword = () => {
+    setType('text');
+  };
+
+  const hidePassword = () => {
+    setType('password');
+  };
+
+  const SignUpSchema = Yup.object().shape({
+    email: Yup.string()
+      .matches(
+        /^\w+[\w-.]*\w@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/,
+        'Must be a valid email (latin letters). For example: example123@example.com'
+      )
+      .email('Must be a valid email!')
+      .min(10)
+      .max(63)
+      .required('Required field'),
+    password: Yup.string()
+      .matches(/(^[a-zA-Z0-9]+$)/, 'Only numbers and Latin letters are allowed')
+      .min(6, 'Minimum 6 characters required')
+      .max(12, 'Maximum 12 characters')
+      .required('Required field'),
+  });
+
+  return (
+    <div className={s.formContainer}>
+      <div className={s.logo}>
+        <svg width="120" height="30" className={s.logoIcon}>
+          <use href={`${sprite}#icon-logo2`}></use>
+        </svg>
+      </div>
+      <Formik initialValues={initialValues} validationSchema={SignUpSchema}>
+        {({ errors, touched }) => (
+          <Form className={s.form} onSubmit={onSubmit}>
+            <label className={s.label}>
+              <Field
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                className={classNames(s.input, {
+                  [s.errorInput]: errors.email && touched.email,
+                  [s.validInput]: !errors.email && touched.email,
+                })}
+                value={email}
+                onInput={e => setEmail(e.target.value)}
+              />
+              <IconSvg icons="email" className={s.inputIcon} />
+              {!errors.email && touched.email && (
+                <IconSvg icons="email" className={s.validInputIcon} />
+              )}
+              {errors.email && touched.email && (
+                <IconSvg icons="email" className={s.errorInputIcon} />
+              )}
+              {errors.email && touched.email && (
+                <div className={s.errorField}>{errors.email}</div>
+              )}
+            </label>
+            <label className={s.label}>
+              <Field
+                type={type}
+                name="password"
+                placeholder="Password"
+                autoComplete="true"
+                className={classNames(s.input, {
+                  [s.errorInput]: errors.password && touched.password,
+                  [s.validInput]: !errors.password && touched.password,
+                })}
+                value={password}
+                onInput={e => setPassword(e.target.value)}
+              />
+              <IconSvg icons="password" className={s.inputIcon} />
+              {!errors.password && touched.password && (
+                <IconSvg icons="password" className={s.validInputIcon} />
+              )}
+              {errors.password && touched.password && (
+                <IconSvg icons="password" className={s.errorInputIcon} />
+              )}
+              {errors.password && touched.password && (
+                <div className={s.errorField}>{errors.password}</div>
+              )}
+              {type === 'password' ? (
+                <span className={s.hideIcon}>
+                  <BiHide
+                    className={s.icon}
+                    onMouseDown={showPassword}
+                    onTouchStart={showPassword}
+                  />
+                </span>
+              ) : (
+                <span
+                  className={s.showIcon}
+                  onMouseUp={hidePassword}
+                  onTouchEnd={hidePassword}
+                >
+                  <BiShow className={s.icon} />
+                </span>
+              )}
+            </label>
+            {loading === false ? (
+              <button type="submit" className={s.loginBtn}>
+                log in
+              </button>
+            ) : (
+              <button className={s.loginBtnLoading} disabled>
+             
+              </button>
+            )}
+
+            <Link to="/SignUp" className={s.registerBtn}>
+              register
+            </Link>
+           
+            
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
+
