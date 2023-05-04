@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './RegisterForm.module.scss';
-import IconSvg from '../../pages/IconSvg';
 import sprite from '../../images/vectors/icons.svg';
+import { ReactComponent as Email } from '../../images/login/email.svg';
+import { ReactComponent as Name } from '../../images/login/name.svg';
+import { ReactComponent as Password } from '../../images/login/password.svg';
 import classNames from 'classnames';
 import PasswordStrength from './PasswordStrength';
 import { Link } from 'react-router-dom';
@@ -93,7 +96,7 @@ const RegisterForm = () => {
         {({ values, errors, touched, handleChange, handleSubmit }) => (
           <Form className={s.form} onSubmit={handleSubmit}>
             <label className={s.label}>
-              <Field
+            <Field
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -104,21 +107,12 @@ const RegisterForm = () => {
                 value={values.email}
                 onChange={handleChange}
               />
-              <svg width="24" height="24" className={s.inputIcon}>
-                <use href={`${sprite}#icon-email`}></use>
-              </svg>
-
+              <Email className={s.inputIcon} />
               {!errors.email && touched.email && (
-               
-               <svg width="24" height="24" className={s.validInputIcon}>
-               <use href={`${sprite}#icon-email`}></use>
-             </svg>
+                <Email className={s.validInputIcon} />
               )}
               {errors.email && touched.email && (
-                <svg width="24" height="24" className={s.errorInputIcon}>
-                <use href={`${sprite}#icon-email`}></use>
-              </svg>
-              
+                <Email className={s.errorInputIcon} />
               )}
               {errors.email && touched.email && (
                 <div className={s.errorField}>{errors.email}</div>
@@ -137,14 +131,12 @@ const RegisterForm = () => {
                 value={values.password}
                 onChange={handleChange}
               />
-              <div className={s.inputIcon}>
-                <IconSvg icon="password" />
-              </div>
+              <Password className={s.inputIcon} />
               {!errors.password && touched.password && (
-                <IconSvg icon="password" className={s.validInputIcon} />
+                <Password className={s.validInputIcon} />
               )}
               {errors.password && touched.password && (
-                <IconSvg icon="password" className={s.errorInputIcon} />
+                <Password className={s.errorInputIcon} />
               )}
               {errors.password && touched.password && (
                 <div className={s.errorField}>{errors.password}</div>
@@ -168,26 +160,26 @@ const RegisterForm = () => {
               )}
             </label>
             <label className={s.label}>
-              <Field
+            <Field
                 type="password"
                 name="passwordConfirm"
                 placeholder="Confirm password"
                 autoComplete="true"
-                // className={classNames(s.input, {
-                //   [s.errorInput]:
-                //     errors.passwordConfirm && touched.passwordConfirm,
-                //   [s.validInput]:
-                //     !errors.passwordConfirm && touched.passwordConfirm,
-                // })}
+                className={classNames(s.input, {
+                  [s.errorInput]:
+                    errors.passwordConfirm && touched.passwordConfirm,
+                  [s.validInput]:
+                    !errors.passwordConfirm && touched.passwordConfirm,
+                })}
                 value={values.confirmPassword}
                 onChange={handleChange}
               />
-              <IconSvg icon="password" className={s.inputIcon} />
+              <Password className={s.inputIcon} />
               {!errors.passwordConfirm && touched.passwordConfirm && (
-                <IconSvg icon="password" className={s.validInputIcon} />
+                <Password className={s.validInputIcon} />
               )}
               {errors.passwordConfirm && touched.passwordConfirm && (
-                <IconSvg icon="password" className={s.errorInputIcon} />
+                <Password className={s.errorInputIcon} />
               )}
               {errors.passwordConfirm && touched.passwordConfirm && (
                 <div className={s.errorFieldConfirmPassword}>
@@ -200,23 +192,23 @@ const RegisterForm = () => {
               />
             </label>
             <label className={s.label}>
-              <Field
+            <Field
                 type="text"
                 name="firstName"
                 placeholder="First name"
-                // className={classNames(s.input, {
-                //   [s.errorInput]: errors.firstName && touched.firstName,
-                //   [s.validInput]: !errors.firstName && touched.firstName,
-                // })}
+                className={classNames(s.input, {
+                  [s.errorInput]: errors.firstName && touched.firstName,
+                  [s.validInput]: !errors.firstName && touched.firstName,
+                })}
                 value={values.firstName}
                 onChange={handleChange}
               />
-              <IconSvg icon="firstname" className={s.inputIcon} />
+              <Name className={s.inputIcon} />
               {!errors.firstName && touched.firstName && (
-                <IconSvg icon="firstname" className={s.validInputIcon} />
+                <Name className={s.validInputIcon} />
               )}
               {errors.firstName && touched.firstName && (
-                <IconSvg icon="firstname" className={s.errorInputIcon} />
+                <Name className={s.errorInputIcon} />
               )}
               {errors.firstName && touched.firstName && (
                 <div className={s.errorField}>{errors.firstName}</div>
