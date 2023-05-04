@@ -10,6 +10,7 @@ import {SuccessRegistrationModal} from '../../components/Modal/SuccessRegistract
 import { useSelector } from 'react-redux';
 import { modalSelectors } from '../../redux/modal/modalSelector';
 
+
 const RegistrationPage = () => {
   const showModalSuccessRegistration = useSelector(
     modalSelectors.showModalSuccessRegistration
@@ -17,7 +18,9 @@ const RegistrationPage = () => {
   return (
     <>
       <Helmet>registration</Helmet>
-        <div className={s.back}>
+        <div className={s.back}
+   
+        >
           <div className={s.container}>
           {showModalSuccessRegistration && <SuccessRegistrationModal />}
             <div className={s.registerContainer}>
