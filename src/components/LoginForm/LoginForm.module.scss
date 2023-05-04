@@ -65,6 +65,7 @@
 .inputIcon {
   position: absolute;
   left: 10px;
+  bottom: 50px;
   color: #e0e0e0;
   fill: #e0e0e0;
 }
@@ -72,6 +73,7 @@
 .errorInputIcon {
   position: absolute;
   left: 10px;
+  bottom: 50px;
   color: red;
   fill: red;
 }
@@ -79,6 +81,7 @@
 .validInputIcon {
   position: absolute;
   left: 10px;
+  bottom: 50px;
   color: var(--text-green-color);
   fill: var(--text-green-color);
 }
@@ -90,7 +93,7 @@
 
 .errorField {
   position: absolute;
-  top: 35px;
+  top: 45px;
 
   font-size: 12px;
   font-family: Circe;
