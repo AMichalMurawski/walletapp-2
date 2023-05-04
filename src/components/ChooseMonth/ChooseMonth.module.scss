@@ -1,13 +1,19 @@
-.container {
-	width: 100%;
-	max-height: 100vh;
-}
+@import '../../stylesheets/utils/colors';
+@import '../../stylesheets/utils/mixins';
 
 .dropdown {
-	margin: 20px 20px;
 	position: relative;
-	user-select: none;
+	margin: 20px 0;
 	min-width: 160px;
+
+	@include mq(tab){
+		margin-right: 16px;
+		margin-top: 40px;
+	}
+	@include mq(desk) {
+		margin-top: 70px;
+		margin-right: 16px;
+    }
 }
 
 .dropdown .dropdownBtn {
@@ -19,16 +25,21 @@
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
-}
 
-.dropdownBtn .dropdownContent {
-	min-width: 160px;
+	@include mq(tab){
+		min-width: 160px;
+	}
+	@include mq(desk) {
+		min-width: 160px;
+    }
 }
 
 .dropdownContent {
       border-radius: 30px;
       padding: 14px;
-	  background:rgba(255, 255, 255, 0.4);
+	  background:rgba(255, 255, 255);
+	  position: absolute;
+	  z-index: 1;
 }
 
 .dropdownBtn {
@@ -44,7 +55,7 @@
 
 .dropdown .dropdownContent {
 	box-shadow: 3px 3px 10px 6px rgb(0, 0, 0,0.06);
-	margin-top: 20px;
+	margin-top: 2px;
 }
 
 .dropdown .dropdownContent .dropdownItem {
@@ -92,3 +103,4 @@
  		transition:.2s ease;
  	}
  }
+
