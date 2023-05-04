@@ -2,8 +2,9 @@ import { Field, Form, Formik } from 'formik';
 import classNames from 'classnames';
 import s from '../LoginForm/LoginForm.module.scss';
 import * as Yup from 'yup';
-import IconSvg from '../../pages/IconSvg';
 import sprite from '../../images/vectors/icons.svg';
+import { ReactComponent as Email } from '../../images/login/email.svg';
+import { ReactComponent as Password } from '../../images/login/password.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -66,7 +67,7 @@ export const LoginForm = () => {
         {({ errors, touched }) => (
           <Form className={s.form} onSubmit={onSubmit}>
             <label className={s.label}>
-              <Field
+            <Field
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -77,12 +78,12 @@ export const LoginForm = () => {
                 value={email}
                 onInput={e => setEmail(e.target.value)}
               />
-              <IconSvg icons="email" className={s.inputIcon} />
+              <Email className={s.inputIcon} />
               {!errors.email && touched.email && (
-                <IconSvg icons="email" className={s.validInputIcon} />
+                <Email className={s.validInputIcon} />
               )}
               {errors.email && touched.email && (
-                <IconSvg icons="email" className={s.errorInputIcon} />
+                <Email className={s.errorInputIcon} />
               )}
               {errors.email && touched.email && (
                 <div className={s.errorField}>{errors.email}</div>
@@ -101,12 +102,12 @@ export const LoginForm = () => {
                 value={password}
                 onInput={e => setPassword(e.target.value)}
               />
-              <IconSvg icons="password" className={s.inputIcon} />
+              <Password className={s.inputIcon} />
               {!errors.password && touched.password && (
-                <IconSvg icons="password" className={s.validInputIcon} />
+                <Password className={s.validInputIcon} />
               )}
               {errors.password && touched.password && (
-                <IconSvg icons="password" className={s.errorInputIcon} />
+                <Password className={s.errorInputIcon} />
               )}
               {errors.password && touched.password && (
                 <div className={s.errorField}>{errors.password}</div>
