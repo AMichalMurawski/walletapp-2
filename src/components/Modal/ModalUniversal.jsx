@@ -4,7 +4,7 @@ import { BsXLg } from 'react-icons/bs';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const ModalUniversal = prop => {
+export const ModalUniversal = prop => {
   return createPortal(
     <div className={s.modal__backdrop} onClick={prop.onClick} type="flipInX">
       <div className={s.modal__content}>
@@ -18,4 +18,3 @@ const ModalUniversal = prop => {
   );
 };
 
-export default ModalUniversal;
