@@ -10,16 +10,16 @@
 
   @include mq(tab) {
     background-color: #e7eaf2;
-    background-image: url('../../images/imgLogin/Ellipse1.png'),
-      url('../../images/imgLogin/Ellipse2.png');
+    background-image: url('../../images/login/ellipse1.svg'),
+      url('../../images/login/ellipse2.svg');
     background-repeat: no-repeat;
     background-position: left bottom, right top;
   }
 
   @include mq(desk) {
     height: 100vh;
-    background-image: url('../../images/imgLogin/Ellipse1desk.png'),
-      url('../../images/imgLogin/Ellipse2desk.png');
+    background-image: url('../../images/login/ellipse1.svg'),
+      url('../../images/login/ellipse2.svg');
   }
 }
 
