@@ -7,8 +7,8 @@
     background-color: var(--background-grey-color);
   
     @include mq(tab) {
-      background-image: url('../../images/imgLogin/Ellipse1.png'),
-        url('../../images/imgLogin/Ellipse2.png');
+      background-image: url('../../images/login/ellipse1.svg'),
+        url('../../images/login/ellipse2.svg');
       background-repeat: no-repeat;
       background-position: left bottom, right top;
     }
