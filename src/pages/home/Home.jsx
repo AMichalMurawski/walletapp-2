@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet";
 import Media from "react-media";
-import Header from "./Header";
-import Balance from "./Balance";
-import Statistics from "./Statistics";
-import Currency from "./Currency";
-import AddButton from "./AddButton";
-import HomeNav from "./HomeNav";
+import Header from "../../components/Header/Header";
+import Balance from "../../components/Balance/Balance";
+import Statistics from "../../components/Statistics/Statistics";
+import Currency from "../../components/Currency/Currency";
+import AddButton from "../../components/utils/AddButton/AddButton";
+import Navigation from "../../components/Navigation/Navigation";
+import Card from "../../components/utils/Card/Card";
 import scss from './Home.module.scss'
 
     const MainWalletPage = () => {
@@ -30,18 +31,18 @@ import scss from './Home.module.scss'
         (
           <div className={scss.primary}> 
        <div>
-        <HomeNav/>
+        <Navigation/>
        
         <Balance/>
         </div>
-        <Statistics/>
+        <Card/>
         </div>
         )}
         {matches.tab && (
           <div className={scss.primary}> 
           <div className={scss.secondary}>
            <div>
-           <HomeNav/>
+           <Navigation/>
             
            <Balance/>
            </div>
@@ -54,7 +55,7 @@ import scss from './Home.module.scss'
         {matches.desk && (
           <div className={scss.primary}> 
           <div>
-           <HomeNav/>
+           <Navigation/>
           
            <Balance/>
    
@@ -66,16 +67,7 @@ import scss from './Home.module.scss'
         </>
        )}  
         </Media>
-       {/* <div className={scss.primary}> 
-       <div>
-        <HomeNav/>
        
-        <Balance/>
-
-        <Currency/>
-        </div>
-        <Statistics/>
-        </div> */}
         <AddButton/>
 
         </div>

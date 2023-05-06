@@ -3,7 +3,7 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './RegisterForm.module.scss';
 
-import IconSvg from "../../pages/IconSvg";
+import IconSvg from '../utils/IconsSvg/IconSvg';
 
 import PasswordStrength from './PasswordStrength';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import scss from './Home.module.scss'
+import scss from './Balance.module.scss'
 
 const Balance = () =>{
     return (

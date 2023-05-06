@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import Table from "./Table";
-import  scss from './Home.module.scss';
+import Table from "../utils/Table/Table";
+
+import scss from './Statistisc.module.scss';
 import data from '../../data.json';
 
 const Statistics = () => {

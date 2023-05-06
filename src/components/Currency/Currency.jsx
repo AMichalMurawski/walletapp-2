@@ -1,4 +1,4 @@
-import scss from './Home.module.scss';
+import scss from './Currency.module.scss';
 import React, { useEffect, useState } from "react";
 const Currency = () =>{
     const [currency, setCurrency] = useState()

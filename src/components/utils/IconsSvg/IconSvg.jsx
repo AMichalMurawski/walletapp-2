@@ -1,4 +1,4 @@
-import sprite from "../images/vectors/icons.svg"
+import sprite from "../../../images/vectors/icons.svg";
 
 const IconSvg = ({icon}) =>{
     return<>
