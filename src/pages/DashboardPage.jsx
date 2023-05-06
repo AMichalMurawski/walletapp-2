@@ -3,20 +3,18 @@ import { useState } from 'react';
 import Chart from '../components/Chart/Chart';
 import ChooseMonth from '../components/ChooseMonth/ChooseMonth';
 import ChooseYear from '../components/ChooseYear/ChooseYear';
-import Home from './home/Home';
 import LegendChart from '../components/LegendChart/LegendChart';
 import css from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
-  const [selected, setSelected] = useState('Choose month');
-  const [selectedYear, setSelectedYear] = useState('Choose year');
+  const [selected, setSelected] = useState('Month');
+  const [selectedYear, setSelectedYear] = useState('Year');
 
   return (
     <>
       <Helmet>
         <title>walletapp</title>
       </Helmet>
-      <Home />
       <div className={css.statisticsContainer}>
         <Chart />
         <div className={css.statisticsPage}>
