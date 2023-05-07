@@ -1,6 +1,7 @@
+@import '../../stylesheets/vars';
+
 .statsMain {
-    display:flex;
-    justify-content: center;
+  @include flex-display(null,null,center);
     margin:46px 46px;
     }
     
@@ -14,8 +15,7 @@
     .statsMain thead {
     height: 58px;
     font-family: Circe;
-    font-size: 18px;
-    font-weight: 700;
+    @include font-type(bold, text-medium);
     background-color: white;
     border-collapse: collapse;    
     
@@ -39,8 +39,7 @@
         .statsMain tbody {
            
             font-family: Circe;
-            font-size: 16px;
-            font-weight: 400;
+            @include font-type(normal,text-normal);
             }
         .statsMain tbody tr {
                 height: 58px;

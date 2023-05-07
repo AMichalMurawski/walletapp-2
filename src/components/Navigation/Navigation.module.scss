@@ -1,6 +1,7 @@
+@import '../../stylesheets/vars';
+
 .mainHome{
-    display:flex;
-    align-items: center;
+    @include flex-display(null,null,null,center);
     margin: 40px 0px 0px 20px
     
 }
@@ -20,21 +21,18 @@ width: 18px;
 
 .textPlain{
     font-family:"Poppins"; 
-    font-size: 18px;
+    @include font-type(normal, text-medium);
     margin: 12px;
 }
 
 .mainStats{
-    display:flex;
-    align-items: center;
+    @include flex-display(null,null,null,center);
     margin: -10px 0px 0px 20px
 }
 
 .button{
     cursor: pointer;
-    display:flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex-display(row,null,null,center);
     background: none;
     border:none;
     transition: transform .2s;    
