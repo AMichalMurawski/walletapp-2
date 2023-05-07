@@ -16,7 +16,6 @@ import scss from './Home.module.scss'
       <Helmet>
         <title>MainWalletPage</title>
       </Helmet>
-
         <Header/>
         <Media
         queries ={{
