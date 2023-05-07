@@ -6,5 +6,5 @@
 @forward './utils/transition' as transition-*;
 
 // components
-@use './components/global' as *; 
+@use './components/global' as *;
 @use '../pages/home' as *;
