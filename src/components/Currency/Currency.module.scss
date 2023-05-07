@@ -1,9 +1,7 @@
 @import '../../stylesheets/vars';
 
 .mainTable{
-    display:flex;
-    align-items: center;
-  //  @include flex-display(none,null,null, center);
+   @include flex-display(null,null,null, center);
     margin:20px;
 }
 

@@ -1,9 +1,11 @@
+
 import data from '../../../data.json';
 import scss from './Card.module.scss';
 
 const Card = () =>{
+
     const dataJson = data[0].data;
-    const getHeadings = () => {
+        const getHeadings = () => {
             return Object.keys(...dataJson);
         }
     const getValues = () =>{
@@ -14,16 +16,18 @@ const Card = () =>{
     const tbodyData = getValues();
     return(
         <>
-        {dataJson.map((single)=>{
-             return(
-                <table className={scss.cardTable}>
+        {dataJson.map((single,index)=>{
+        
+        return(
+        
+                <table  key ={index} className={scss.cardTable}>
                     <tbody className={scss.cardTbody}>
                     
                     <tr>
                         {theadData.map((single =>{
                     
                             return(
-                             <th>{single}</th>
+                             <th key={single}>{single}</th>
                             
                             )
                         }))}
@@ -32,7 +36,7 @@ const Card = () =>{
                         {tbodyData.map((single =>{
                             return(
                         
-                                <td>{single}</td>
+                                <td key={single}>{single}</td>
 
                                                      )
                         }))}
