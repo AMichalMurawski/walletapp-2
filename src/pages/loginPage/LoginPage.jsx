@@ -1,16 +1,14 @@
 import { Helmet } from 'react-helmet';
-//import {LoginForm} from '../../components/LoginForm';
+import { LoginForm } from '../../components/LoginForm/LoginForm';
 import s from './LoginPage.module.scss';
-import login_tab from '../../images/imgLogin/Login@1x_tab.png';
-import login_tab_2x from '../../images/imgLogin/Login@2x_tab.png';
-import login_desk from '../../images/imgLogin/Login@1x_desk.png';
-import login_desk_2x from '../../images/imgLogin/Login@2x_desk.png';
+import man from '../../images/login/man.svg';
+
 import Media from 'react-media';
 
 const LoginPage = () => {
   return (
     <>
-    <Helmet>login</Helmet>
+      <Helmet>login</Helmet>
       <div className={s.back}>
         <div className={s.container}>
           <div className={s.loginContainer}>
@@ -25,9 +23,10 @@ const LoginPage = () => {
                   {matches.tab && (
                     <div className={s.loginImgWrapper}>
                       <img
-                        src={login_tab}
-                        srcSet={`${login_tab_2x} 2x`}
+                        src={man}
                         alt="The phone with app on the screen"
+                        width="250"
+                        height="260"
                         className={s.loginImg}
                       />
                       <p className={s.appTitle}>Finance App</p>
@@ -36,8 +35,7 @@ const LoginPage = () => {
                   {matches.desk && (
                     <div className={s.loginImgWrapper}>
                       <img
-                        src={login_desk}
-                        srcSet={`${login_desk_2x} 2x`}
+                        src={man}
                         alt="The phone with app on the screen"
                         width="435"
                         height="420"
@@ -49,12 +47,13 @@ const LoginPage = () => {
                 </>
               )}
             </Media>
-            <div className={s.form}></div>
-       
+            <div className={s.form}>
+            <LoginForm />
+            </div>
           </div>
         </div>
       </div>
-      </>
+    </>
   );
 };
 

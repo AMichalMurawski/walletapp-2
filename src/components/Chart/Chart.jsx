@@ -15,7 +15,7 @@ ChartJS.register(
 );
 
 
-function Chart  ()  {
+const Chart = () => {
 
 const data = {    
     labels: ['Main expenses', "Products", "Car", "Self care", "Child care", "Household products", "Education", "Leisure", "Other exprenses"],
@@ -24,6 +24,7 @@ const data = {
         data: [3,6,9,30,11,14,7,34,23],
         backgroundColor: ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF','#6E78E8', '#4A56E2', '#81E1FF', '#24CCA7', '#00AD84'],
         borderColor: ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2', '#81E1FF', '#24CCA7', '#00AD84'],
+        cutout: "70%",
     }],
 }
 
@@ -41,25 +42,38 @@ const textCenter = {
     }
 
 const options = {
-    cutout: 90,
+    plugins: {
+        legend: {
+            
+            position: 'bottom',
+            align: 'start',
+            maxWidth: 20,
+            maxHeight: 700,
+            display: false,
+            
+                labels: {
+                    boxWidth: 24,
+                    boxHeight: 24,
+                    padding: 26,
+                }
+        }
+     }
 }
-
 
     return (
         <div className={css.chartContainer}>
             <h1 className={css.statistics}> Statistics </h1>
-        <div>
-            <div style= { {width: '100%', height: '100%'} }>
+        <div className={css.container}>
+            <div> 
             <Doughnut
             data ={data}
             options={options}
             plugins = {[textCenter]}
             >
             </Doughnut>
-        </div>
-        </div>
-
             </div>
+        </div>
+</div>
     );
 };
   

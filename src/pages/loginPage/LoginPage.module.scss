@@ -10,16 +10,16 @@
 
   @include mq(tab) {
     background-color: #e7eaf2;
-    background-image: url('../../images/imgLogin/Ellipse1.png'),
-      url('../../images/imgLogin/Ellipse2.png');
+    background-image: url('../../images/login/ellipse1.svg'),
+      url('../../images/login/ellipse2.svg');
     background-repeat: no-repeat;
     background-position: left bottom, right top;
   }
 
   @include mq(desk) {
     height: 100vh;
-    background-image: url('../../images/imgLogin/Ellipse1desk.png'),
-      url('../../images/imgLogin/Ellipse2desk.png');
+    background-image: url('../../images/login/ellipse1.svg'),
+      url('../../images/login/ellipse2.svg');
   }
 }
 
@@ -29,6 +29,7 @@
     max-width: 731px;
     top: 0;
     right: 0;
+    left:549px;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(25px);
@@ -54,8 +55,7 @@
     height: 100vh;
     max-width: 100%;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: baseline;
+    margin-right: 91px;
   }
 }
 

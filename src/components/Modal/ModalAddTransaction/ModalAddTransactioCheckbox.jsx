@@ -1,7 +1,7 @@
 import { HiOutlinePlus, HiOutlineMinus } from 'react-icons/hi';
 import s from './ModalAddTransactionCheckbox.module.scss';
 
-const ModalAddTransactionCheckbox = prop => {
+export const ModalAddTransactionCheckbox = prop => {
   const { onHandleCheckbox, checkboxStatus } = prop;
   return (
     <div className={s.checkboxInfo}>
@@ -30,4 +30,3 @@ const ModalAddTransactionCheckbox = prop => {
     </div>
   );
 };
-export default ModalAddTransactionCheckbox;

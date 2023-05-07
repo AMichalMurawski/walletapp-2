@@ -3,7 +3,7 @@ import { userSelectors } from 'redux/user/userSelectors';
 import { useRef, useEffect } from 'react';
 import s from './ModalAddTransactionFormMenu.module.scss';
 
-const ModalAddTransactionFormMenu = props => {
+export const ModalAddTransactionFormMenu = props => {
   const { handleCategory, handleBlur } = props;
   const ulFocus = useRef(null);
   useEffect(() => {
@@ -37,5 +37,3 @@ const ModalAddTransactionFormMenu = props => {
     </ul>
   );
 };
-
-export default ModalAddTransactionFormMenu;

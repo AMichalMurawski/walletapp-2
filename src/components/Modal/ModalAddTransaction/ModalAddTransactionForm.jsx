@@ -38,7 +38,7 @@ const initialValues = {
   comment: '',
 };
 
-const ModalAddTransactionForm = prop => {
+export const ModalAddTransactionForm = prop => {
   const { checkboxStatus, onClick } = prop;
   const [bekDate, setBekDate] = useState(new Date().toISOString());
   const [date, setDate] = useState(getDate());
@@ -254,4 +254,4 @@ const ModalAddTransactionForm = prop => {
   );
 };
 
-export default ModalAddTransactionForm;
+
