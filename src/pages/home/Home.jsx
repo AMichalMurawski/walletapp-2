@@ -9,7 +9,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import Card from "../../components/utils/Card/Card";
 import scss from './Home.module.scss'
 
-    const MainWalletPage = () => {
+    const HomePage = () => {
      
        return (
     <div className={scss.pageHomeContainer}>
@@ -73,4 +73,4 @@ import scss from './Home.module.scss'
   );
 };
 
-export default MainWalletPage;
+export default HomePage;
