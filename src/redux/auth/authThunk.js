@@ -4,11 +4,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://wallet-api.herokuapp.com/api';
 axios.defaults.withCredentials = true;
 
-let accessToken = '';
+export const globalTokens = { accessToken: null };
 
 axios.interceptors.request.use(
   config => {
-    config.headers.Authorization = 'Bearer ' + accessToken;
+    config.headers.Authorization = 'Bearer ' + globalTokens.accessToken;
     return config;
   },
   error => {
@@ -17,7 +17,7 @@ axios.interceptors.request.use(
 );
 
 const getToken = token => {
-  accessToken = token;
+  globalTokens.accessToken = token;
 };
 
 export const signup = createAsyncThunk(
