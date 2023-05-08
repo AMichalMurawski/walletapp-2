@@ -1,17 +1,15 @@
-import { Chart } from '../Chart/Chart';
-import { ChooseMonth } from '../ChooseMonth/ChooseMonth';
-import { ChooseYear } from '../ChooseYear/ChooseYear';
-import { LegendChart } from '../LegendChart/LegendChart';
+import * as React from 'react';
+import css from './DiagramTab.module.scss';
+import Chart from './Chart/Chart';
+import Table from './Table/Table';
 
 const DiagramTab = () => {
-  return (
-    <div>
-      <Chart />
-      <ChooseMonth />
-      <ChooseYear />
-      <LegendChart />
-    </div>
-  );
-};
+    return (
+        <div className={css.container}>
+            <Chart/>
+            <Table/>
+        </div>
+    )
+}
 
 export default DiagramTab;
