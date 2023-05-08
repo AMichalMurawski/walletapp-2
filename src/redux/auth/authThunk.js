@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://wallet-api.herokuapp.com/api';
+axios.defaults.withCredentials = true;
 
 let accessToken = '';
 
