@@ -1,8 +1,10 @@
 import { useAuth } from './hooks/useAuth';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { RestrictedRoute, ProtectedRoute } from './routes';
-import { lazy } from 'react';
+import { lazy, useState } from 'react';
 import { SharedLayout } from './components/SharedLayout';
+import { useDispatch } from 'react-redux';
+import { currentUser } from './redux/auth/authThunk';
 
 const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
@@ -15,6 +17,11 @@ const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 export const App = () => {
   const { isRefreshing } = useAuth();
+  const dispatch = useDispatch();
+
+  useState(() => {
+    window.addEventListener('load', e => dispatch(currentUser()));
+  });
 
   return isRefreshing ? (
     <b>Refreshing user...</b>

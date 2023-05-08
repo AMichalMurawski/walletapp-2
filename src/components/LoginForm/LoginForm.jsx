@@ -15,13 +15,13 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 export const LoginForm = () => {
   const initialValues = {
-    email: '',
-    password: '',
+    email: 'example@mail.pl',
+    password: 'Password1!',
   };
 
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('example@mail.com');
+  const [password, setPassword] = useState('Password1!');
   const loading = useSelector(selectIsLoggedIn);
 
   const onSubmit = e => {
