@@ -9,6 +9,8 @@ const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage/RegistrationPage')
 );
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
+const HomeTab = lazy(() => import('./components/Home/Home'));
+const DiagramTab = lazy(() => import('./components/DiagramTab/DiagramTab'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 export const App = () => {
@@ -19,28 +21,27 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Navigate to="/home" />} />
+        <Route index element={<Navigate to="/" />} />
         <Route
           path="/login"
-          element={
-            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
-          }
+          element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
         />
         <Route
           path="/registration"
           element={
-            <RestrictedRoute
-              redirectTo="/home"
-              component={<RegistrationPage />}
-            />
+            <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
           }
         />
         <Route
-          path="/home"
+          path="/"
           element={
             <ProtectedRoute redirectTo="/login" component={<DashboardPage />} />
           }
-        />
+        >
+          <Route index element={<Navigate to="/home" />} />
+          <Route path="/home" element={<HomeTab />} />
+          <Route path="/statistics" element={<DiagramTab />} />
+        </Route>
         <Route path="*" element={<Navigate to="/home" />} />
         <Route path="/notFound" element={<NotFound />} />
       </Route>

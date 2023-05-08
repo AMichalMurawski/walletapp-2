@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet';
 import Media from 'react-media';
 import { Header } from '../../components/Header/Header';
 import Balance from '../../components/Balance/Balance';
-import Statistics from '../../components/Statistics/Statistics';
 import Currency from '../../components/Currency/Currency';
 import AddButton from '../../components/utils/AddButton/AddButton';
 import Navigation from '../../components/Navigation/Navigation';
@@ -45,7 +44,6 @@ const HomePage = () => {
                   </div>
                   <Currency />
                 </div>
-                <Statistics />
               </div>
             )}
             {matches.desk && (
@@ -57,7 +55,6 @@ const HomePage = () => {
 
                   <Currency />
                 </div>
-                <Statistics />
               </div>
             )}
           </>
