@@ -1,42 +1,49 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, refreshUser } from "./authThunk";
+import { createSlice } from '@reduxjs/toolkit';
+import { signup, signin, signout, refreshTokens } from './authThunk';
 
 const initialState = {
-  user: { name: null, email: null },
-  token: null,
-  isLoggedIn: false, // po utworzeniu logowania i rejestracji zamienić na false
+  user: { id: null, firstName: null, email: null },
+  accessToken: null,
+  isLoggedIn: false,
   isRefreshing: false,
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
-  extraReducers: (builder) => {
-    builder.addCase(register.fulfilled, (state, action) => {
+  extraReducers: builder => {
+    builder.addCase(signup.fulfilled, (state, action) => {
       state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.accessToken = action.payload.accessToken;
       state.isLoggedIn = true;
     });
-    builder.addCase(logIn.fulfilled, (state, action) => {
+    builder.addCase(signin.fulfilled, (state, action) => {
       state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.accessToken = action.payload.accessToken;
       state.isLoggedIn = true;
-    });
-    builder.addCase(logOut.fulfilled, (state, action) => {
-      state.user = { name: null, email: null };
-      state.token = null;
-      state.isLoggedIn = false;
     });
     builder
-      .addCase(refreshUser.pending, (state) => {
+      .addCase(signout.fulfilled, state => {
+        state.user = { id: null, name: null, email: null };
+        state.accessToken = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(signout.rejected, state => {
+        state.user = { id: null, name: null, email: null };
+        state.accessToken = null;
+        state.isLoggedIn = false;
+      });
+    builder
+      .addCase(refreshTokens.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+      .addCase(refreshTokens.fulfilled, (state, action) => {
+        state.accessToken = action.payload.accessToken; // sprawdzić czy to potrzebne?
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, (state) => {
+      .addCase(refreshTokens.rejected, state => {
+        state.isLoggedIn = false;
         state.isRefreshing = false;
       });
   },
