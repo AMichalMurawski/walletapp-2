@@ -1,0 +1,10 @@
+@import '../../stylesheets/utils/colors';
+@import '../../stylesheets/utils/mixins';
+
+.container {
+    margin: 20px;
+
+    @include mq(tab) {
+        display: flex;
+              }
+}

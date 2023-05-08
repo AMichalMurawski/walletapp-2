@@ -1,0 +1,181 @@
+:root {
+  --text-primary: black;
+  --text-alernative: white;
+  --text-placeholder-input-grey-color: rgba(189, 189, 189, 1);
+  --text-white-color: rgba(255, 255, 255, 1);
+  --text-grey-color: rgba(166, 166, 166, 1);
+  --text-red-color: rgba(255, 101, 150, 1);
+  --text-green-color: rgba(36, 204, 167, 1);
+  --main-background-color: rgba(255, 255, 255, 1);
+  --secondary-background-color: rgba(255, 255, 255, 0.4);
+  --right-side-red-line-status: rgba(255, 101, 150, 1);
+  --right-side-green-line-status: rgba(36, 204, 167, 1);
+  --main-accent-color-blue: #4a56e2;
+  --main-accent-filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+  --secondary-accent-color-blue: rgba(110, 120, 232, 1);
+  --grey-color-icon: rgba(189, 189, 189, 1);
+  --text-modal-green-color: rgba(36, 204, 167, 1);
+  --text-modal-grey-color: rgba(224, 224, 224, 1);
+  --text-modal-red-color: rgba(255, 101, 150, 1);
+  --modal-background-color-white: rgba(255, 255, 255, 1);
+  --modal-background-color-grey: rgba(0, 0, 0, 0.25);
+  --modal-currency-blue: rgba(74, 86, 226, 1);
+  --background-color-dropdown: rgba(255, 255, 255, 0.7);
+  --shadow-dropdown: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  --filter-dropdown: blur(25px);
+  --backgroud-color-dropdown-second: #f6f0ef;
+  --filter-dropdown-display-none: blur(2px);
+  --btn-green-color: #24cca7;
+  --btn-blue-color: rgba(74, 86, 226, 1);
+  --btn-text-white: rgba(255, 255, 255, 1);
+  --btn-text-blue: rgba(74, 86, 226, 1);
+  --green-circle-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+  --red-circle-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+  --btn-green-color-hover: rgb(115, 248, 219);
+  --btn-green-color-active: rgb(38, 177, 147);
+  --btn-blue-color-hover: rgb(124, 133, 235);
+  --btn-blue-color-active: rgb(29, 41, 177);
+  --grey-bottom-border-table: rgba(220, 220, 223, 1);
+  --box-shadow-table: rgba(255, 255, 255, 0.6);
+  --background-white-color: rgba(255, 255, 255, 1);
+  --background-grey-color: rgba(255, 255, 255, 0.4);
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1280px;
+}
+
+.back {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .back {
+    background-color: #e7eaf2;
+    background-image: url("../../images/login/ellipse1.svg"), url("../../images/login/ellipse2.svg");
+    background-repeat: no-repeat;
+    background-position: left bottom, right top;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .back {
+    height: 100vh;
+    background-image: url("../../images/login/ellipse1.svg"), url("../../images/login/ellipse2.svg");
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .blur {
+    position: absolute;
+    max-width: 731px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+  }
+}
+
+.registerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+  height: 100vh;
+  padding-top: 32px;
+  padding-bottom: 36px;
+}
+@media screen and (min-width: 768px) {
+  .registerContainer {
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100%;
+    gap: 50px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .registerContainer {
+    height: 100vh;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: baseline;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.registerImgWrapper {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+}
+@media screen and (min-width: 1280px) {
+  .registerImgWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 31.9px;
+  }
+}
+
+.registerImg {
+  margin-top: 60px;
+  margin-left: 82px;
+}
+@media screen and (min-width: 1280px) {
+  .registerImg {
+    margin-top: 153px;
+    margin-left: 50px;
+  }
+}
+
+.appTitle {
+  margin-top: 163px;
+  font-size: 30px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media screen and (min-width: 1280px) {
+  .appTitle {
+    margin-top: 0;
+    margin-left: 184px;
+  }
+}
+
+.form {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    width: auto;
+    padding-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+    margin-right: -16px;
+    padding-left: 107px;
+    padding-top: 52px;
+    padding-right: 91px;
+    padding-bottom: 52px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+  }
+}
+
+@media (orientation: landscape) {
+  .back {
+    height: auto;
+  }
+  .registerContainer {
+    height: auto;
+  }
+}/*# sourceMappingURL=RegistrationPage.module.css.map */
