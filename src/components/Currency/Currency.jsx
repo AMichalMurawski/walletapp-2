@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCurrency } from '../../redux/currency/CurrencySlice';
 import React, { useEffect} from "react";
 
-const currency_URL ="http://api.nbp.pl/api/exchangerates/tables/C?format=json";
-
 const Currency = () =>{
 
     const {currency, isLoading, error } = useSelector((state) =>state.currency)
@@ -21,6 +19,7 @@ const Currency = () =>{
       return(
         <>
         {currency.length>0 &&
+        <div className={scss.mainCurrencyComp}>
         <div className={scss.mainTable}>
         <table className={scss.tableCurrency}>
           <tbody>
@@ -42,6 +41,7 @@ const Currency = () =>{
               </tr>  
           </tbody>
         </table>
+        </div>
         </div>}
         </>
         

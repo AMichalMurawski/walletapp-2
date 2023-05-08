@@ -1,4 +1,5 @@
 import Media from 'react-media';
+import { NavLink } from 'react-router-dom';
 import IconSvg from '../utils/IconsSvg/IconSvg';
 import scss from './Navigation.module.scss';
 
@@ -15,66 +16,118 @@ return (
             { matches => (
         <>
         {matches.mob && 
-        (
-            <div className={scss.homeMob}>
-           <button className={scss.button}>
+        (   <>
+          <div >
+          <nav className={scss.homeMob}>
+         <NavLink  style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      textDecoration: isActive ? "underline" :"none"
+    };
+  }} to="statsMob"
+         >
           <div className={scss.homeMobIcon}>
           <IconSvg icon="home"/>
           </div>
-          </button>
-          <button className={scss.button}>
+          </NavLink>
+          <NavLink className={scss.navLink} 
+         style={({ isActive}) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            textDecoration: isActive ? "underline" :"none"
+          };
+        }}
+         to="chart"  >
           <div className={scss.homeMobIcon}>
           <IconSvg icon="stats"/>
           </div>
-          </button>
-          <button className={scss.button}>
+          </NavLink>
+          <NavLink  style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      textDecoration: isActive ? "underline" :"none"
+    };
+  }} to="currency"
+         >
           <div className={scss.homeMobIcon}>
           <IconSvg icon="dolar"/>
           </div>   
-          </button>   
+          </NavLink>
+          </nav>   
             </div>
-            
+            </>
 
         )}
         {matches.tab && (
           <div className={scss.homeNav}>
-          <button className={scss.button}>
+           <nav>
+         <NavLink  style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      textDecoration: isActive ? "underline" :"none"
+    };
+  }} to="stats"
+         >
           <div className={scss.mainHome}>     
           <div className={scss.home}>
           <IconSvg icon="home"/>
           </div>
           <h1 className={scss.textPlain}>Home</h1>
           </div>
-          </button>
-          <button className={scss.button}>
+          </NavLink>
+          <NavLink  style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      textDecoration: isActive ? "underline" :"none"
+    };
+  }} to="chart "
+         >
           <div className={scss.mainStats}>     
           <div className={scss.stats}>
           <IconSvg icon="stats"/>
           </div>
           <h1 className={scss.textPlain} >Statistics</h1>
           </div>
-          </button>
+          </NavLink>
+          </nav>
           </div>
         )}
         {matches.desk && (
+          <>
          <div className={scss.homeNav}>
-         <button className={scss.button}>
+          <nav>
+         <NavLink  style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      textDecoration: isActive ? "underline" :"none"
+    };
+  }} to="home"
+         >
          <div className={scss.mainHome}>     
          <div className={scss.home}>
          <IconSvg icon="home"/>
+         </div> 
+         <p className={scss.textPlain}>Home</p>
          </div>
-         <h1 className={scss.textPlain}>Home</h1>
-         </div>
-         </button>
-         <button className={scss.button}>
+         </NavLink>
+         <NavLink className={scss.navLink} 
+         style={({ isActive}) => {
+          return {
+            fontWeight: isActive ? "bold" : "",
+            textDecoration: isActive ? "underline" :"none"
+          };
+        }}
+         to="chart"  >
          <div className={scss.mainStats}>     
          <div className={scss.stats}>
          <IconSvg icon="stats"/>
          </div>
-         <h1 className={scss.textPlain} >Statistics</h1>
+         <p className={scss.textPlain}>Statistics</p>
          </div>
-         </button>
+         </NavLink>
+         </nav>
          </div>
+         </>
         )}
         </>
        )} 

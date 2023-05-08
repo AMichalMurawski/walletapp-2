@@ -1,15 +1,16 @@
 import { Helmet } from "react-helmet";
+import { Outlet } from "react-router-dom";
 import Media from "react-media";
 import Header from "../../components/Header/Header";
 import Balance from "../../components/Balance/Balance";
-import Statistics from "../../components/Statistics/Statistics";
+
 import Currency from "../../components/Currency/Currency";
 import AddButton from "../../components/utils/AddButton/AddButton";
 import Navigation from "../../components/Navigation/Navigation";
-import Card from "../../components/utils/Card/Card";
-import scss from './Home.module.scss'
 
-    const HomePage = () => {
+import scss from './DashboardPage.module.scss'
+
+    const DashboardPage = () => {
      
        return (
     <div className={scss.pageHomeContainer}>
@@ -34,7 +35,7 @@ import scss from './Home.module.scss'
        
         <Balance/>
         </div>
-        <Card/>
+        <Outlet/>  
         </div>
         )}
         {matches.tab && (
@@ -48,7 +49,7 @@ import scss from './Home.module.scss'
            <Currency/>
            
            </div>
-           <Statistics/>
+           <Outlet/>
            </div>
         )}
         {matches.desk && (
@@ -60,7 +61,7 @@ import scss from './Home.module.scss'
    
            <Currency/>
            </div>
-           <Statistics/>
+           <Outlet/>
            </div>
         )}
         </>
@@ -73,4 +74,4 @@ import scss from './Home.module.scss'
   );
 };
 
-export default HomePage;
+export default DashboardPage;
