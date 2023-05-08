@@ -7,7 +7,6 @@ import { SharedLayout } from './components/SharedLayout';
 const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
-
 const NotFound = lazy(()=> import('./pages/NotFound/NotFound'))
 
 export const App = () => {
@@ -40,7 +39,6 @@ export const App = () => {
             <ProtectedRoute redirectTo="/login" component={<DashboardPage />} />
           }
         />
-
         <Route path="*" element={<Navigate to="/home" />} />
         <Route path="/notFound" element={<NotFound />} />
       </Route>
