@@ -1,0 +1,29 @@
+@import '../../stylesheets/vars';
+.balance{
+    @include flex-display(null, null, center);
+}
+
+.balanceMain{
+    width: 336px;
+    height: 80px;
+    border-radius:30px;
+    background-color: var(--main-background-color);
+    padding:10px 25px;
+    margin:20px;
+    @include flex-display(column,null,center);
+}
+
+.balanceTitle{
+    @include font-type(null, text-little,null,null);
+    font-family: "Circe";
+    color: var(--text-grey-color);
+    margin:0
+}
+
+.balanceNumber{
+    @include font-type(null , header-normal);
+    margin:0px;
+    font-family: "Circe";
+    color: var(--text-grey-color);
+
+}

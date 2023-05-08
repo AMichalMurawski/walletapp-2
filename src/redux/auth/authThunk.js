@@ -72,3 +72,14 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+export const resendVerification = createAsyncThunk(
+  'users/verify',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/users/verify', credentials);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

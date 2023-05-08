@@ -1,0 +1,57 @@
+@import '../../stylesheets/vars';
+
+.containerHeader{
+    @include flex-display(null,null,space-between);
+    height: 80px;
+    background-color: var(--background-white-color);
+}
+
+.logo svg{
+    width: 40px;
+    height: 40px;
+    margin:0px 20px;
+    border:var(--background-white-color);
+    }
+    .exit svg{
+        width: 18px;
+        height: 18px;
+        margin: 0px 12px
+    }    
+
+.button{
+    cursor: pointer;
+    @include flex-display(row,null,null,center);
+    background: none;
+    border:none;
+    transition: transform .2s;
+}
+.button:hover{
+    transform: scale(1.1);
+}
+
+.main {
+    @include flex-display(null,null, center,center);
+}
+
+.logout{
+    font-family: 'Circe';
+    color: var(--text-grey-color);
+    @include font-type(normal, text-medium);
+    margin:20px;
+}
+.logout:hover{
+    text-decoration: underline;
+}
+
+.dot{
+ border: 1px solid #BDBDBD;
+ height: 30px; 
+ margin:12px
+}
+
+
+.wallet {
+    font-family: 'poppins';
+    @include font-type(bold,header-normal, height);
+    color: var(--text-primary);
+}

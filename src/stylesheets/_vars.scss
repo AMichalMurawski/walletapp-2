@@ -4,6 +4,7 @@
 @forward './utils/flex' as flex-*;
 @forward './utils/font' as font-*;
 @forward './utils/transition' as transition-*;
+@forward './utils/mixins' as mixins-*;
 
 // components
 @use './components/global' as *;

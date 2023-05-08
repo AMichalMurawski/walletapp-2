@@ -1,0 +1,199 @@
+@import '../../stylesheets/utils/colors';
+@import '../../stylesheets/utils/mixins';
+@import '../../stylesheets/utils/placeholders';
+.formContainer {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+
+  @include mq(tab) {
+    width: 533px;
+    padding-top: 40px;
+    padding-bottom: 62px;
+    padding-left: 65px;
+    padding-right: 58.5px;
+    border-radius: 20px;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+
+  @include mq(tab) {
+    justify-content: flex-start;
+    margin-left: 101px;
+  }
+}
+
+.logoIcon {
+  @include mq(tab) {
+    width: 181px;
+    height: 40px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: 32px;
+  width: 80%;
+  margin-bottom: 40px;
+  padding-left: 54px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+
+  font-family: 'Circe';
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.errorInput {
+  border-bottom: 1px solid red;
+}
+
+.validInput {
+  border-bottom: 1px solid var(--text-green-color);
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  color: #e0e0e0;
+  fill: #e0e0e0;
+}
+
+.errorInputIcon {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  color: red;
+  fill: red;
+}
+
+.validInputIcon {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  color: var(--text-green-color);
+  fill: var(--text-green-color);
+}
+
+.label {
+  position: relative;
+  display: block;
+}
+
+.errorField {
+  position: absolute;
+  top: 45px;
+
+  font-size: 12px;
+  font-family: Circe;
+  color: rgb(255, 55, 55);
+}
+
+.passwordIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+  top: 3px;
+}
+
+.loginBtn {
+  @extend %btnGreen;
+  display: block;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 13px 98px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  @include mq(tab) {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+  }
+}
+
+.loginBtnLoading {
+@extend %btnGreen;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 13px 98px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  @include mq(tab) {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+  }
+}
+
+.registerBtn {
+  @extend %btnTransperentBlue;
+  display: block;
+  height: 50px;
+  border-radius: 20px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 55px;
+  padding-right: 55px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+  @include mq(tab) {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.forgotLink {
+  margin-top: 30px;
+  color: var(--text-grey-color);
+  text-align: center;
+
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: var(--text-green-color);
+  }
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.hideIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 6px;
+  top: 3px;
+  color: #e0e0e0;
+}
+
+.showIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 6px;
+  top: 3px;
+  color: var(--text-green-color);
+}
