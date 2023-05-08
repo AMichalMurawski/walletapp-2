@@ -8,7 +8,7 @@ const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage/RegistrationPage')
 );
-const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 export const App = () => {
