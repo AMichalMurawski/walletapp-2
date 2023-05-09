@@ -1,7 +1,6 @@
 import * as React from 'react';
 import css from './Table.module.scss';
 import TableFilters from '../../Dropdown/Dropdown';
-import { useDispatch } from 'react-redux';
 import { useChart } from '../../../hooks';
 
 const Table = ({ colors }) => {

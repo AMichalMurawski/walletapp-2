@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useAuth, useWallet } from '../../hooks';
+import { useWallet } from '../../hooks';
 import scss from './Balance.module.scss';
 
 export const Balance = () => {
