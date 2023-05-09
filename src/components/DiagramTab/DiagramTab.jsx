@@ -7,6 +7,18 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { transactionsSummary } from '../../redux/chart/chartThunk';
 
+const colors = [
+  '#FED057',
+  '#FFD8D0',
+  '#FD9498',
+  '#C5BAFF',
+  '#6E78E8',
+  '#4A56E2',
+  '#81E1FF',
+  '#24CCA7',
+  '#00AD84',
+];
+
 const DiagramTab = () => {
   const { year, month } = useChart();
   const { user } = useAuth();
@@ -18,8 +30,8 @@ const DiagramTab = () => {
 
   return (
     <div className={css.container}>
-      <Chart />
-      <Table />
+      <Chart colors={colors} />
+      <Table colors={colors} />
     </div>
   );
 };
