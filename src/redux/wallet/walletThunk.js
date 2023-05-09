@@ -45,7 +45,6 @@ export const getTransactions = createAsyncThunk(
       const response = await axios.get(`wallet/${walletId}/transactions`);
       return response.data;
     } catch (error) {
-      console.log('error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

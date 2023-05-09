@@ -22,7 +22,6 @@ const walletSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(getTransactions.fulfilled, (state, action) => {
       state.transactions = action.payload.transactions;
-      console.log(action.payload);
       state.balance = action.payload.balance;
     });
     builder.addCase(addTransaction.fulfilled, (state, action) => {

@@ -22,7 +22,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('example@mail.com');
   const [password, setPassword] = useState('Password1!');
-  const isLoading = useAuth();
+  const { isRefreshing } = useAuth();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -135,12 +135,14 @@ export const LoginForm = () => {
                 </span>
               )}
             </label>
-            {isLoading === false ? (
+            {isRefreshing === false ? (
               <button type="submit" className={s.loginBtn}>
                 log in
               </button>
             ) : (
-              <button className={s.loginBtnLoading} enabled></button>
+              <button className={s.loginBtnLoading} enabled>
+                loading
+              </button>
             )}
 
             <Link to="/registration" className={s.registerBtn}>

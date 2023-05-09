@@ -18,16 +18,32 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
-    builder.addCase(signup.fulfilled, (state, action) => {
-      state.user = action.payload.user;
-      state.accessToken = action.payload.accessToken;
-      state.isLoggedIn = true;
-    });
-    builder.addCase(signin.fulfilled, (state, action) => {
-      state.user = action.payload.user;
-      state.accessToken = action.payload.accessToken;
-      state.isLoggedIn = true;
-    });
+    builder
+      .addCase(signup.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(signup.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.accessToken = action.payload.accessToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(signup.rejected, state => {
+        state.isRefreshing = false;
+      });
+    builder
+      .addCase(signin.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(signin.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.accessToken = action.payload.accessToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(signin.rejected, state => {
+        state.isRefreshing = false;
+      });
     builder
       .addCase(signout.fulfilled, state => {
         state.user = { id: null, name: null, email: null, wallets: [] };
