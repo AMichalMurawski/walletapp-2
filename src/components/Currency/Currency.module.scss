@@ -1,7 +1,12 @@
 @import '../../stylesheets/vars';
 
+.mainCurrencyComp{
+    display:flex;
+    justify-content: center;
+}
+
 .mainTable{
-   @include flex-display(null,null,null, center);
+   @include flex-display(null,null,space-between, center);
     margin:20px;
 }
 

@@ -6,27 +6,29 @@ import sprite from '../../images/vectors/icons.svg';
 import { ReactComponent as Email } from '../../images/login/email.svg';
 import { ReactComponent as Password } from '../../images/login/password.svg';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import {logIn} from '../../redux/auth/authThunk';
+import { signin } from '../../redux/auth/authThunk';
 import { BiHide, BiShow } from 'react-icons/bi';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useAuth } from '../../hooks';
 //import { Loader } from 'components';
 
 export const LoginForm = () => {
   const initialValues = {
-    email: '',
-    password: '',
+    email: 'example@mail.pl',
+    password: 'Password1!',
   };
 
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const loading = useSelector(selectIsLoggedIn);
+  const [email, setEmail] = useState('example@mail.com');
+  const [password, setPassword] = useState('Password1!');
+  const isLoading = useAuth();
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(logIn({ email, password }));
+    const form = e.currentTarget;
+    const { email, password } = form.elements;
+    dispatch(signin({ email: email.value, password: password.value }));
   };
 
   const [type, setType] = useState('password');
@@ -50,7 +52,10 @@ export const LoginForm = () => {
       .max(63)
       .required('Required field'),
     password: Yup.string()
-      .matches(/(^[a-zA-Z0-9]+$)/, 'Only numbers and Latin letters are allowed')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$/,
+        'Only numbers and Latin letters are allowed'
+      )
       .min(6, 'Minimum 6 characters required')
       .max(12, 'Maximum 12 characters')
       .required('Required field'),
@@ -67,7 +72,7 @@ export const LoginForm = () => {
         {({ errors, touched }) => (
           <Form className={s.form} onSubmit={onSubmit}>
             <label className={s.label}>
-            <Field
+              <Field
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -130,25 +135,20 @@ export const LoginForm = () => {
                 </span>
               )}
             </label>
-            {loading === false ? (
+            {isLoading === false ? (
               <button type="submit" className={s.loginBtn}>
                 log in
               </button>
             ) : (
-              <button className={s.loginBtnLoading} disabled>
-             
-              </button>
+              <button className={s.loginBtnLoading} enabled></button>
             )}
 
-            <Link to="/SignUp" className={s.registerBtn}>
+            <Link to="/registration" className={s.registerBtn}>
               register
             </Link>
-           
-            
           </Form>
         )}
       </Formik>
     </div>
   );
 };
-

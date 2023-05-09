@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import PasswordStrength from './PasswordStrength';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/auth/authThunk';
+import { signup } from '../../redux/auth/authThunk';
 import { toggleShowModalSuccessRegistration } from '../../redux/modal/modalSlice';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
@@ -33,7 +33,7 @@ const RegisterForm = () => {
       password,
       firstName,
     };
-    dispatch(register(user)).then(response => {
+    dispatch(signup(user)).then(response => {
       if (response.payload.status === 'success') {
         dispatch(toggleShowModalSuccessRegistration(true));
       }
@@ -96,7 +96,7 @@ const RegisterForm = () => {
         {({ values, errors, touched, handleChange, handleSubmit }) => (
           <Form className={s.form} onSubmit={handleSubmit}>
             <label className={s.label}>
-            <Field
+              <Field
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -160,7 +160,7 @@ const RegisterForm = () => {
               )}
             </label>
             <label className={s.label}>
-            <Field
+              <Field
                 type="password"
                 name="passwordConfirm"
                 placeholder="Confirm password"
@@ -192,7 +192,7 @@ const RegisterForm = () => {
               />
             </label>
             <label className={s.label}>
-            <Field
+              <Field
                 type="text"
                 name="firstName"
                 placeholder="First name"
