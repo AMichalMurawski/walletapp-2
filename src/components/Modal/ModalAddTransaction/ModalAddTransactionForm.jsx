@@ -83,34 +83,34 @@ export const ModalAddTransactionForm = prop => {
         onClick();
         return;
       }
-      const formValues = {
-        transactionType: checkboxStatus,
-        comment,
-        amount: Number(amount).toFixed(2) * 1,
-        date: bekDate,
-      };
+      // const formValues = {
+      //   transactionType: checkboxStatus,
+      //   comment,
+      //   amount: Number(amount).toFixed(2) * 1,
+      //   date: bekDate,
+      // };
       // dispatch(financeOperation.addTransaction(formValues));
       onClick();
       return;
     }
     if (comment === '') {
-      const formValues = {
-        transactionType: checkboxStatus,
-        category: categoryId,
-        amount: Number(amount),
-        date: bekDate,
-      };
+      // const formValues = {
+      //   transactionType: checkboxStatus,
+      //   category: categoryId,
+      //   amount: Number(amount),
+      //   date: bekDate,
+      // };
       //dispatch(financeOperation.addTransaction(formValues));
       onClick();
       return;
     }
-    const formValues = {
-      transactionType: checkboxStatus,
-      category: categoryId,
-      comment,
-      amount: Number(amount),
-      date: bekDate,
-    };
+    // const formValues = {
+    //   transactionType: checkboxStatus,
+    //   category: categoryId,
+    //   comment,
+    //   amount: Number(amount),
+    //   date: bekDate,
+    // };
     // dispatch(financeOperation.addTransaction(formValues));
     onClick();
     return;

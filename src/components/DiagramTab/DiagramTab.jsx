@@ -25,7 +25,7 @@ const DiagramTab = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(transactionsSummary);
+    dispatch(transactionsSummary());
   }, [user, year, month]);
 
   return (
