@@ -8,7 +8,7 @@ import 'react-datetime/css/react-datetime.css';
 import { RiCalendar2Line } from 'react-icons/ri';
 import { HiOutlineChevronDown, HiOutlineChevronUp } from 'react-icons/hi';
 import getDate from '../../../utils/getDate';
-import s from './ModalAddTransactionForm.module.scss';
+import scss from './ModalAddTransactionForm.module.scss';
 import ModalAddTransactionFormMenu from './ModalAddTransactionFormMenu/ModalAddTransactionFormMenu';
 //import financeOperation from 'redux/finance/financeOperation';
 
@@ -74,11 +74,11 @@ export const ModalAddTransactionForm = prop => {
 
     if (checkboxStatus) {
       if (comment === '') {
-        const formValues = {
-          transactionType: checkboxStatus,
-          amount: Number(amount).toFixed(2) * 1,
-          date: bekDate,
-        };
+        // const formValues = {
+        //   transactionType: checkboxStatus,
+        //   amount: Number(amount).toFixed(2) * 1,
+        //   date: bekDate,
+        // };
         // dispatch(financeOperation.addTransaction(formValues));
         onClick();
         return;
@@ -122,10 +122,10 @@ export const ModalAddTransactionForm = prop => {
 
   const renderCalendarInput = (props, openCalendar) => {
     return (
-      <div className={s.dataBox}>
+      <div className={scss.dataBox}>
         <Field
           {...props}
-          className={s.addFormInputDate}
+          className={scss.addFormInputDate}
           type="text"
           placeholder="date"
           name="date"
@@ -133,8 +133,8 @@ export const ModalAddTransactionForm = prop => {
           value={date}
           readOnly
         ></Field>
-        <button className={s.dataBtn} type="button" onClick={openCalendar}>
-          <RiCalendar2Line className={s.dataBtnIcon}></RiCalendar2Line>
+        <button className={scss.dataBtn} type="button" onClick={openCalendar}>
+          <RiCalendar2Line className={scss.dataBtnIcon}></RiCalendar2Line>
         </button>
       </div>
     );
@@ -146,10 +146,10 @@ export const ModalAddTransactionForm = prop => {
       r === 'Please, enter an amount max 2500000!' ||
       r === 'Amount is required'
     ) {
-      return <div className={s.errorSum}>{r}</div>;
+      return <div className={scss.errorSum}>{r}</div>;
     }
     return (
-      <div className={s.errorSum}>
+      <div className={scss.errorSum}>
         Digits only, no more than two after the decimal point
       </div>
     );
@@ -161,12 +161,12 @@ export const ModalAddTransactionForm = prop => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form className={s.addForm}>
-        <div className={s.addFormInputContainer}>
+      <Form className={scss.addForm}>
+        <div className={scss.addFormInputContainer}>
           {!checkboxStatus && (
-            <label className={s.categoryLabel}>
+            <label className={scss.categoryLabel}>
               <Field
-                className={s.addFormInputCategory}
+                className={scss.addFormInputCategory}
                 type="text"
                 placeholder="Select a category"
                 name="category"
@@ -176,13 +176,13 @@ export const ModalAddTransactionForm = prop => {
                 readOnly
               />
               <button
-                className={s.openMenuBtn}
+                className={scss.openMenuBtn}
                 type="button"
                 onClick={open ? handleClose : handleOpen}
               >
                 {!open ? (
                   <HiOutlineChevronDown
-                    className={s.openMenuBtnIcon}
+                    className={scss.openMenuBtnIcon}
                   ></HiOutlineChevronDown>
                 ) : (
                   <HiOutlineChevronUp
@@ -198,22 +198,22 @@ export const ModalAddTransactionForm = prop => {
               )}
             </label>
           )}
-          <label className={s.sumBox}>
+          <label className={scss.sumBox}>
             <Field
-              className={s.addFormInputSum}
+              className={scss.addFormInputSum}
               type="text"
               placeholder="0.00"
               name="amount"
               autoComplete="off"
             ></Field>
             <ErrorMessage
-              className={s.errorMessage}
+              className={scss.errorMessage}
               name="amount"
               component="div"
               render={createValidateMessageAmount}
             ></ErrorMessage>
           </label>
-          <label className={s.dateBox}>
+          <label className={scss.dateBox}>
             <Datetime
               timeFormat={false}
               renderInput={renderCalendarInput}
@@ -224,9 +224,9 @@ export const ModalAddTransactionForm = prop => {
               onChange={createDate}
             />
           </label>
-          <label className={s.commentBox}>
+          <label className={scss.commentBox}>
             <Field
-              className={s.addFormTextarea}
+              className={scss.addFormTextarea}
               name="comment"
               component="textarea"
               placeholder="Comment"
@@ -237,21 +237,19 @@ export const ModalAddTransactionForm = prop => {
               }}
             ></Field>
             <ErrorMessage
-              className={s.errorMessage}
+              className={scss.errorMessage}
               name="comment"
               component="div"
               render={r => {
-                return <div className={s.errorComment}>{r}</div>;
+                return <div className={scss.errorComment}>{r}</div>;
               }}
             ></ErrorMessage>
           </label>
         </div>
-        <button type="submit" className={s.addBtn}>
+        <button type="submit" className={scss.addBtn}>
           Add
         </button>
       </Form>
     </Formik>
   );
 };
-
-

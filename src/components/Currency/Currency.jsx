@@ -4,7 +4,7 @@ import { getCurrency } from '../../redux/currency/CurrencySlice';
 import React, { useEffect } from 'react';
 
 export const Currency = () => {
-  const { currency, isLoading, error } = useSelector(state => state.currency);
+  const { currency } = useSelector(state => state.currency);
 
   const dispatch = useDispatch();
 
