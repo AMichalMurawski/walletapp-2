@@ -6,23 +6,23 @@ import sprite from '../../images/vectors/icons.svg';
 import { ReactComponent as Email } from '../../images/login/email.svg';
 import { ReactComponent as Password } from '../../images/login/password.svg';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { signin } from '../../redux/auth/authThunk';
 import { BiHide, BiShow } from 'react-icons/bi';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useAuth } from '../../hooks';
 //import { Loader } from 'components';
 
 export const LoginForm = () => {
   const initialValues = {
-    email: '',
-    password: '',
+    email: 'example@mail.pl',
+    password: 'Password1!',
   };
 
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const loading = useSelector(selectIsLoggedIn);
+  const [email, setEmail] = useState('example@mail.com');
+  const [password, setPassword] = useState('Password1!');
+  const isLoading = useAuth();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -135,7 +135,7 @@ export const LoginForm = () => {
                 </span>
               )}
             </label>
-            {loading === false ? (
+            {isLoading === false ? (
               <button type="submit" className={s.loginBtn}>
                 log in
               </button>
