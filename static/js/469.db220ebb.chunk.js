@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkwalletapp=self.webpackChunkwalletapp||[]).push([[469],{469:function(e,a,l){l.r(a);var n=l(270),t=l(184);a.default=function(){return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.q,{children:(0,t.jsx)("title",{children:"walletapp"})}),(0,t.jsx)("p",{children:"Dashboard Page"})]})}}}]);
-//# sourceMappingURL=469.db220ebb.chunk.js.map
