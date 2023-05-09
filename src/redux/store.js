@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice.js';
 import { modalReducer } from './modal/modalSlice';
 import { walletReducer } from './wallet/walletSlice';
+import { chartReducer } from './chart/chartSlice.js';
 import currencyReducer from './currency/CurrencySlice.js';
 // import { reducer } from "./path/to/reducer"
 
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     modal: modalReducer,
     wallet: walletReducer,
+    chart: chartReducer,
     currency: currencyReducer,
     // name: reducer
   },
