@@ -40,10 +40,10 @@ const initialValues = {
 
 export const ModalAddTransactionForm = prop => {
   const { checkboxStatus, onClick } = prop;
-  const [bekDate, setBekDate] = useState(new Date().toISOString());
+  // const [bekDate, setBekDate] = useState(new Date().toISOString());
   const [date, setDate] = useState(getDate());
   const [open, setOpen] = useState(false);
-  const [categoryId, setCategoryId] = useState('10');
+  // const [categoryId, setCategoryId] = useState('10');
   const [categoryValue, setCategoryValue] = useState('Other expenses');
 
   // const dispatch = useDispatch();
@@ -55,7 +55,7 @@ export const ModalAddTransactionForm = prop => {
   };
 
   const createDate = ({ _d }) => {
-    setBekDate(_d.toISOString());
+    // setBekDate(_d.toISOString());
     setDate(getDate(_d));
   };
 
@@ -64,13 +64,13 @@ export const ModalAddTransactionForm = prop => {
   };
 
   const addValueCategory = (_id, name) => {
-    setCategoryId(_id);
+    // setCategoryId(_id);
     setCategoryValue(name);
     handleClose();
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    const { amount, comment } = values;
+    // const { amount, comment } = values;
 
     if (checkboxStatus) {
       if (comment === '') {
