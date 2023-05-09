@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 import css from './Dropdown.module.scss';
 import { selectStyles } from './SelectStyles';
 
-const currentMonth = new Date().getMonth() + 1;
+// const currentMonth = new Date().getMonth() + 1;
 const months = Array.from({ length: 12 }, (item, i) => {
   return format(new Date(0, i), 'LLLL', {
     locale: pl,
@@ -24,7 +24,7 @@ for (let i = currentYear; i >= 1999; i--) {
 
 const TableFilters = () => {
   const updateDate = (name, value) => {
-    setDate(prev => ({ ...prev, [name]: value }));
+    // setDate(prev => ({ ...prev, [name]: value }));
   };
 
   return (

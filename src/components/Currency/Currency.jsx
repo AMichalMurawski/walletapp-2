@@ -2,11 +2,9 @@ import scss from './Currency.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrency } from '../../redux/currency/CurrencySlice';
 import React, { useEffect } from 'react';
-import { useAuth } from '../../hooks';
 
 export const Currency = () => {
   const { currency } = useSelector(state => state.currency);
-  const { user } = useAuth();
 
   const dispatch = useDispatch();
 
