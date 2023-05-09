@@ -2,7 +2,7 @@ import * as React from 'react';
 import css from './DiagramTab.module.scss';
 import Chart from './Chart/Chart';
 import Table from './Table/Table';
-import { useAuth, useChart } from '../../hooks';
+import { useChart } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { transactionsSummary } from '../../redux/chart/chartThunk';
@@ -21,12 +21,11 @@ const colors = [
 
 const DiagramTab = () => {
   const { year, month } = useChart();
-  const { user } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(transactionsSummary());
-  }, [user, year, month]);
+  }, [dispatch, year, month]);
 
   return (
     <div className={css.container}>
