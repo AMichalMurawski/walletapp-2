@@ -1,7 +1,34 @@
-const  Table = ({theadData, tbodyData, className}) => {
-     return ( 
-       <table className={className}><thead className={className+"_head"}><tr>{theadData.map(heading=>{return<th className={className +"_th"}key={heading}>{heading}</th>})}</tr></thead><tbody className={className +"_body"}>{tbodyData.map((row, index)=>{return<tr key={index}>{theadData.map((key,index)=>{return<td className={className+"_td"}key={row[key]}>{row[key]}</td>})}</tr>})}</tbody></table>
-    );
-    }
+const Table = ({ theadData, tbodyData, className }) => {
+  return (
+    <table className={className}>
+      <thead className={className + '_head'}>
+        <tr>
+          {theadData.map(heading => {
+            return (
+              <th className={className + '_th'} key={heading}>
+                {heading}
+              </th>
+            );
+          })}
+        </tr>
+      </thead>
+      <tbody className={className + '_body'}>
+        {tbodyData.map((row, index) => {
+          return (
+            <tr key={row._id}>
+              <td className={className + '_td'}>
+                {new Date(row.date).toLocaleDateString()}
+              </td>
+              <td className={className + '_td'}>{row.type}</td>
+              <td className={className + '_td'}>{row.categoryId}</td>
+              <td className={className + '_td'}>{row.comment}</td>
+              <td className={className + '_td'}>{row.sum}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
 
-    export default Table
+export default Table;
